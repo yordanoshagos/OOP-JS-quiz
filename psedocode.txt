@@ -1,0 +1,41 @@
+1. Create a CustomerOrder class with properties: orderId (string), items (array of objects with name, quantity, price), and status (string). Add a method calculateTotal() that returns the total order amount. Write an async method processPayment() that simulates payment with a Promise that resolves after 2 seconds. After calling the method, change the status to "paid" and print a success message.
+Input
+ orderId (string)
+ items (array of objects: {name, quantity, price})
+ status (string)
+Process
+ Calculate total by summing (quantity * price) for each item 
+ Simulate payment with a 2-second delay
+ On payment, set status to "paid" and print success
+Output
+    Total order amount
+    Status updated to "paid" and success message printed
+
+2. Create a TeamMember class that takes name, role, and an array of tasks (each task is an object with title and completed boolean). Write a prototype method completeTask(taskTitle) that marks a task as completed. Write another method checkProgress() that returns a Promise resolving to "All tasks completed!" or rejecting with "Pending tasks remaining" based on the state of the tasks array.
+Input:
+    name (string)
+    role (string)
+    tasks (array: {title, completed})
+Process:
+    Mark a task as complete by title
+    Check if all tasks are completed
+Output:
+    Task marked as completed
+    Promise resolves if all tasks done, else rejects
+
+3. Build a Candidate class with properties: name, position, and interviews (array of objects with date, status). Add a method scheduleInterview(date) that pushes a new interview with status "pending". Then write an async function sendConfirmation() that returns a Promise that resolves after 1 second with a message "Interview confirmed with [name]", and log the message.
+
+4. Design a Course class with properties: title, instructor, and students (array of student objects with name and progress). Add a method updateProgress(studentName, value) that modifies the student’s progress. Create an async method generateCertificate(studentName) that returns a Promise resolving only if the progress is 100, otherwise reject with "Incomplete progress".
+
+5. Create a StockTracker class with a property watchlist (array of objects with symbol, threshold, currentPrice). Add a method updatePrice(symbol, newPrice) that updates the stock’s current price. Write an async method checkAlerts() that loops through the watchlist and returns a Promise resolving with a list of stocks where currentPrice >= threshold, or rejecting with "No alerts triggered".
+Pseudocode
+        Create class called StockTracker
+        Has  properties of watchlist (array of {symbol, threshold, currentPrice})
+        Has a method of updatePrice(symbol, newPrice)
+        Find the stock by symbol in the watchlist
+        Update its currentPrice to newPrice.
+        Create Async function called checkAlerts()
+        Loop through the watchlist
+        Collect stocks where currentPrice >= threshold
+        If found, resolve with their list
+        If none, reject with "No alerts triggered" number 5
