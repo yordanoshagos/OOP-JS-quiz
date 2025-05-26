@@ -13,19 +13,59 @@ Output
 
 2. Create a TeamMember class that takes name, role, and an array of tasks (each task is an object with title and completed boolean). Write a prototype method completeTask(taskTitle) that marks a task as completed. Write another method checkProgress() that returns a Promise resolving to "All tasks completed!" or rejecting with "Pending tasks remaining" based on the state of the tasks array.
 Input:
-    name (string)
-    role (string)
-    tasks (array: {title, completed})
+
+name (string),
+role (string),
+arrTasks (array of {title, completed})
+
 Process:
-    Mark a task as complete by title
-    Check if all tasks are completed
+
+completeTask(taskTitle):
+Find the task in arrTasks with the given title and set its completed to true.
+checkProgress:
+Check if every task’s completed is true.
+If all are completed, resolve Promise with "All tasks completed!".
+Otherwise, reject with "Pending tasks remaining".
+
 Output:
-    Task marked as completed
-    Promise resolves if all tasks done, else rejects
+
+completeTask: Updates task’s completed status.
+checkProgress: Resolves or rejects Promise with progress message.
 
 3. Build a Candidate class with properties: name, position, and interviews (array of objects with date, status). Add a method scheduleInterview(date) that pushes a new interview with status "pending". Then write an async function sendConfirmation() that returns a Promise that resolves after 1 second with a message "Interview confirmed with [name]", and log the message.
+Input:
+
+name (string),
+position (string),
+interviews (array of {date, status})
+Process:
+
+scheduleInterview(date):
+Add a new interview object with date and status: "pending" to interviews.
+sendConfirmation():
+Wait 1 second. Print and resolve with "Interview confirmed with [name]".
+Output:
+
+scheduleInterview: Updates interviews array.
+sendConfirmation: Prints and resolves with confirmation message.
 
 4. Design a Course class with properties: title, instructor, and students (array of student objects with name and progress). Add a method updateProgress(studentName, value) that modifies the student’s progress. Create an async method generateCertificate(studentName) that returns a Promise resolving only if the progress is 100, otherwise reject with "Incomplete progress".
+Input:
+
+title (string),
+instructor (string),
+students (array of {name, progress})
+Process:
+
+updateProgress(studentName, value):
+For the student with name === studentName, set progress to value.
+generateCertificate(studentName):
+If that student’s progress === 100, resolve Promise with "Certificate generated for [name]".
+Otherwise, reject with "Incomplete progress".
+Output:
+
+updateProgress: Updates student’s progress.
+generateCertificate: Resolves or rejects with certificate message.
 
 5. Create a StockTracker class with a property watchlist (array of objects with symbol, threshold, currentPrice). Add a method updatePrice(symbol, newPrice) that updates the stock’s current price. Write an async method checkAlerts() that loops through the watchlist and returns a Promise resolving with a list of stocks where currentPrice >= threshold, or rejecting with "No alerts triggered".
 Pseudocode
